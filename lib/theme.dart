@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:terasrimba/utils/constants.dart';
 
 ThemeData theme() {
@@ -32,19 +33,18 @@ InputDecorationTheme inputDecorationTheme() {
 
 TextTheme textTheme() {
   return const TextTheme(
-    bodyText1: TextStyle(color: kTextColor),
-    bodyText2: TextStyle(color: kTextColor),
+    bodyLarge: TextStyle(color: kTextColor),
+    bodyMedium: TextStyle(color: kTextColor),
   );
 }
 
 AppBarTheme appBarTheme() {
-  return const AppBarTheme(
-    color: Colors.white,
+  return AppBarTheme(
+    backgroundColor: Colors.white,
     elevation: 0,
-    brightness: Brightness.light,
-    iconTheme: IconThemeData(color: Colors.black),
-    textTheme: TextTheme(
-      headline6: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
-    ),
+    iconTheme: const IconThemeData(color: Colors.black),
+    systemOverlayStyle: SystemUiOverlayStyle.dark,
+    toolbarTextStyle: const TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
+    titleTextStyle: const TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
   );
 }

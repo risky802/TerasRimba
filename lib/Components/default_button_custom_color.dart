@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import '../size_config.dart';
 
 class DefaultButtonCustomeColor extends StatelessWidget {
-  const DefaultButtonCustomeColor({Key? key, this.text, this.color, this.press})
-    : super(key: key);
+  const DefaultButtonCustomeColor({
+    super.key,
+    this.text,
+    this.color,
+    this.press,
+  });
   final String? text;
   final Color? color;
   final Function? press;
@@ -16,10 +20,10 @@ class DefaultButtonCustomeColor extends StatelessWidget {
       height: getProportionateScreenHeight(56),
       child: TextButton(
         style: TextButton.styleFrom(
+          foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
-          primary: Colors.white,
           backgroundColor: color,
         ),
         onPressed: press as void Function()?,
