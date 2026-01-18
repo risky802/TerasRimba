@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:terasrimba/Screens/Login/LoginSecreens.dart';
-import 'package:terasrimba/Screens/Register/Registrasi.dart';
+import 'package:terasrimba/Screens/Login/login_screen.dart';
+import 'package:terasrimba/Screens/Register/register_screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
-  LoginSecreens.routName: (context) => LoginSecreens(),
-  RegisterScreen.routName: (context) => RegisterScreen(),
+  LoginScreen.routeName: (context) => const LoginScreen(),
+  RegisterScreen.routeName: (context) => const RegisterScreen(),
 };
