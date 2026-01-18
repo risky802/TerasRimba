@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:terasrimba/Components/custom_suffix_icon.dart';
-import 'package:terasrimba/Components/default_button.dart';
+import 'package:terasrimba/Components/custom_surfix_icon.dart';
+import 'package:terasrimba/Components/default_button_custom_color.dart';
 import 'package:terasrimba/utils/constants.dart';
 import 'package:terasrimba/size_config.dart';
-import 'package:terasrimba/Screens/Register/register_screen.dart';
+import 'package:terasrimba/Screens/Register/Registrasi.dart';
 
 class SignInForm extends StatefulWidget {
   const SignInForm({super.key});
@@ -40,14 +40,13 @@ class _SignInFormState extends State<SignInForm> {
       child: Column(
         children: [
           buildUserName(),
-          SizedBox(height: getProportionateScreenWidth(20)),
+          SizedBox(height: getProportionateScreenWidth(30)),
           buildPassword(),
           SizedBox(height: getProportionateScreenWidth(20)),
           Row(
             children: [
               Checkbox(
                 value: remeber,
-                activeColor: kPrimaryColor,
                 onChanged: (value) {
                   setState(() {
                     remeber = value ?? false;
@@ -63,42 +62,31 @@ class _SignInFormState extends State<SignInForm> {
               GestureDetector(
                 onTap: () {
                   // TODO: Navigate to forgot password
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Fitur akan segera tersedia'),
-                      duration: Duration(seconds: 1),
-                    ),
-                  );
                 },
                 child: const Text(
                   "Lupa Password?",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                     color: kPrimaryColor,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
             ],
           ),
           SizedBox(height: getProportionateScreenWidth(30)),
-          DefaultButton(
+          DefaultButtonCustomeColor(
             color: kPrimaryColor,
             text: "MASUK",
             press: () {
               if (_formKey.currentState!.validate()) {
                 username = txtUserName.text;
                 password = txtPassword.text;
-
-                // Hapus focus
-                FocusScope.of(context).unfocus();
-
                 // TODO: Handle login logic
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text('Login berhasil'),
                     backgroundColor: kPrimaryColor,
-                    duration: Duration(seconds: 2),
                   ),
                 );
               }
@@ -114,10 +102,10 @@ class _SignInFormState extends State<SignInForm> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, RegisterScreen.routeName);
+                  Navigator.pushNamed(context, RegisterScreen.routName);
                 },
                 child: const Text(
-                  "Daftar Sekarang",
+                  "Daftar Akun",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                     color: kPrimaryColor,
@@ -152,14 +140,14 @@ class _SignInFormState extends State<SignInForm> {
       },
       decoration: InputDecoration(
         labelText: 'Username',
-        hintText: 'Masukkan username Anda',
+        hintText: 'Masukkan Username Anda',
         labelStyle: TextStyle(
           color: focusNodeUsername.hasFocus ? kPrimaryColor : mSubtitleColor,
           fontWeight: FontWeight.w500,
         ),
         hintStyle: const TextStyle(color: mGreyColor),
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/User.svg"),
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -199,14 +187,14 @@ class _SignInFormState extends State<SignInForm> {
       },
       decoration: InputDecoration(
         labelText: 'Password',
-        hintText: 'Masukkan password Anda',
+        hintText: 'Masukkan Password Anda',
         labelStyle: TextStyle(
           color: focusNodePassword.hasFocus ? kPrimaryColor : mSubtitleColor,
           fontWeight: FontWeight.w500,
         ),
         hintStyle: const TextStyle(color: mGreyColor),
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg"),
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
         ),

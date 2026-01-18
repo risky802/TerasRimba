@@ -14,7 +14,7 @@ class RegisterForm extends StatefulWidget {
 
 class _RegisterFormState extends State<RegisterForm> {
   final _formKey = GlobalKey<FormState>();
-  
+
   late TextEditingController txtFullName;
   late TextEditingController txtEmail;
   late TextEditingController txtUsername;
@@ -39,7 +39,7 @@ class _RegisterFormState extends State<RegisterForm> {
     txtUsername = TextEditingController();
     txtPassword = TextEditingController();
     txtConfirmPassword = TextEditingController();
-    
+
     focusNodeFullName = FocusNode();
     focusNodeEmail = FocusNode();
     focusNodeUsername = FocusNode();
@@ -54,13 +54,13 @@ class _RegisterFormState extends State<RegisterForm> {
     txtUsername.dispose();
     txtPassword.dispose();
     txtConfirmPassword.dispose();
-    
+
     focusNodeFullName.dispose();
     focusNodeEmail.dispose();
     focusNodeUsername.dispose();
     focusNodePassword.dispose();
     focusNodeConfirmPassword.dispose();
-    
+
     super.dispose();
   }
 
@@ -127,10 +127,10 @@ class _RegisterFormState extends State<RegisterForm> {
                   );
                   return;
                 }
-                
+
                 // TODO: Handle registration logic
                 FocusScope.of(context).unfocus();
-                
+
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text('Pendaftaran berhasil'),
@@ -138,9 +138,9 @@ class _RegisterFormState extends State<RegisterForm> {
                     duration: Duration(seconds: 2),
                   ),
                 );
-                
+
                 await Future.delayed(const Duration(seconds: 2));
-                
+
                 if (mounted) {
                   Navigator.pushNamedAndRemoveUntil(
                     context,
@@ -300,7 +300,8 @@ class _RegisterFormState extends State<RegisterForm> {
       ),
       hintStyle: const TextStyle(color: mGreyColor),
       floatingLabelBehavior: FloatingLabelBehavior.always,
-      prefixIcon: suffixIcon == null ? CustomSuffixIcon(svgIcon: svgIcon) : null,
+      prefixIcon:
+          suffixIcon == null ? CustomSuffixIcon(svgIcon: svgIcon) : null,
       suffixIcon: suffixIcon,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
